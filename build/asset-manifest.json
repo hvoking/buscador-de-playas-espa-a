@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/buscador-de-playas/static/css/main.87e12733.css",
+    "main.js": "/buscador-de-playas/static/js/main.d72850ef.js",
+    "static/js/879.d4f12eeb.chunk.js": "/buscador-de-playas/static/js/879.d4f12eeb.chunk.js",
+    "index.html": "/buscador-de-playas/index.html",
+    "main.87e12733.css.map": "/buscador-de-playas/static/css/main.87e12733.css.map",
+    "main.d72850ef.js.map": "/buscador-de-playas/static/js/main.d72850ef.js.map",
+    "879.d4f12eeb.chunk.js.map": "/buscador-de-playas/static/js/879.d4f12eeb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.87e12733.css",
+    "static/js/main.d72850ef.js"
+  ]
+}
