@@ -3,6 +3,7 @@ import { useCallback } from 'react';
 
 // App imports
 import { CustomMarker } from './marker';
+import { Points } from './points';
 import { CustomPopup } from './popup';
 import { Filters } from './filters';
 import './styles.scss';
@@ -30,6 +31,15 @@ export const MapContainer = () => {
 		setPlaceCoordinates(coordinates);
 	}, []);
 
+	const onClick = (event: any) => {
+		setPropertyHoverInfo(null);
+		const feature = event.features && event.features[0];
+		if (feature) {
+			setCurrentId(feature.properties.codigo);
+			setPropertyHoverInfo(feature);
+			propertyInfo && setPropertyInfo(feature); 
+		}
+	}
 
 	return (
 		<div className="map-wrapper">
@@ -42,17 +52,10 @@ export const MapContainer = () => {
 				doubleClickZoom={false}
 				antialias={true}
 				preserveDrawingBuffer={true}
-				onClick={() => {
-					setPropertyHoverInfo(null);
-				}}
+				onClick={onClick}
+				interactiveLayerIds={['unclustered-point']}
 			>
-		        <CustomMarker 
-		        	filterProperties={beachData}
-		        	propertyInfo={propertyInfo}
-		        	setCurrentId={setCurrentId}
-		        	setPropertyInfo={setPropertyInfo}
-					setPropertyHoverInfo={setPropertyHoverInfo}
-		        />
+				<Points beachData={beachData}/>
 				{propertyHoverInfo && 
 					<CustomPopup 
 						marker={propertyHoverInfo} 

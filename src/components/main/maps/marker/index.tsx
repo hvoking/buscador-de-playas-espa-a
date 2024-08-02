@@ -21,9 +21,6 @@ export const CustomMarker = ({ filterProperties, propertyInfo, setCurrentId, set
           const longitude = coordinates[0];
           const latitude = coordinates[1];
 
-          const construtora = marker.construtora;
-          const logoConstrutora = `${process.env.PUBLIC_URL}/static/icons/beach.svg`;
-
           return (
             <Marker key={index} longitude={longitude} latitude={latitude}>
                 <div style={{width: "10px", height: "10px", borderRadius: "50%", backgroundColor: "rgba(122, 122, 222, 1)"}} onClick={(e: any) => onClick(e, marker)}>

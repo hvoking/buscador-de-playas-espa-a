@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 // App imports
 import { Description } from './description';
 import './styles.scss';
@@ -8,12 +6,10 @@ import './styles.scss';
 import { Popup } from 'react-map-gl';
 
 export const CustomPopup: any = ({ marker, setPropertyInfo, setPropertyHoverInfo }: any) => {
-  const coordinates = marker.geom.coordinates;
+  const coordinates = marker.geometry.coordinates;
 
   const longitude = coordinates[0];
   const latitude = coordinates[1];
-
-  const [ imageLoaded, setImageLoaded ] = useState(false);
 
   const onClick = () => setPropertyInfo(marker);
   const onClose = () => setPropertyHoverInfo(null);
