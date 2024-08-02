@@ -31,7 +31,7 @@ export const Suggestions = ({ suggestions, 	handleClick }: any) => {
 										style={{alignSelf: "center"}}
 									/>
 								</div>
-								<div>{suggestion.replace(", españa", "")}</div>
+								<div>{suggestion}</div>
 							</div>
 						</li>
 					)

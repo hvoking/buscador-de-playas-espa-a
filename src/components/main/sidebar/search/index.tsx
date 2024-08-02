@@ -80,6 +80,7 @@ export const Search = () => {
 	const getCurrentPrediction = (currentSearchValue: any) => {
 		googleSearchData && googleSearchData.predictions.filter((item: any) => {
 			const placeName = item.description.toLowerCase().trim();
+			console.log(currentSearchValue)
 			if (placeName === currentSearchValue) {
 				setPlaceId(item.place_id);
 			}

@@ -17,6 +17,7 @@ export const GeoProvider = ({children}: any) => {
 	const [ cityName, setCityName ] = useState("barcelona");
 	const [ viewport, setViewport ] = useState(Locations.barcelona);
 	const [ placeCoordinates, setPlaceCoordinates ] = useState<any>(null);
+	const [ placeId, setPlaceId ] = useState<any>(null);
 
 	useEffect(() => {
 		setViewport({...viewport, ...placeCoordinates});
@@ -27,7 +28,8 @@ export const GeoProvider = ({children}: any) => {
 			cityName, setCityName, 
 			placeCoordinates, setPlaceCoordinates,
 			viewport, setViewport,
-			Locations, cities
+			Locations, cities,
+			placeId, setPlaceId
 		}}>
 			{children}
 		</GeoContext.Provider>
