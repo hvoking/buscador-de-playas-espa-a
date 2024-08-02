@@ -9,34 +9,28 @@ import './styles.scss';
 
 // Context imports
 import { useGeo } from '../../../context/filters/geo';
+import { useGoogleSearchApi } from '../../../context/api/google/search';
 
 export const Search = () => {
-	const { setCityName, Locations, cities, setPlaceCoordinates } = useGeo();
-
-	const [ searchText, setSearchText ] = useState<any>("");
-	const [ suggestions, setSuggestions ] = useState<any>([]);
+	const { setPlaceId } = useGeo();
+	const { googleSearchData, searchText, setSearchText } = useGoogleSearchApi();
 
 	const [ suggestionIndex, setSuggestionIndex ] = useState(0);
 	const [ suggestionsActive, setSuggestionsActive ]= useState(false);
 	
 	const inputRef = useRef<any>(null);
 
-	const onFocus = () => {
-		setSuggestions(Object.keys(cities));
-		setSuggestionsActive(true);
-	}
+	const suggestions = googleSearchData && googleSearchData.predictions.reduce((total: any, item: any) => {
+		const placeName = item.description.toLowerCase()
+		total.push(placeName)
+		return total
+	}, []);
 
 	const handleChange = (e: any) => {
-		const query = e.target.value.toLowerCase();
+		const query = e.target.value;
 		setSearchText(query);
+
 		if (query.length > 0) {
-			const filterSuggestions: any = Object.keys(cities).filter((suggestion: any) => 
-				{
-					const currentSuggestion = suggestion.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
-					return currentSuggestion.indexOf(query) > -1
-				}
-			)
-			setSuggestions(filterSuggestions);
 			setSuggestionsActive(true);
 		}
 		else {
@@ -61,21 +55,14 @@ export const Search = () => {
 		}
 		// enter
 		else if (e.keyCode === 13) {
-			const cityValue: string = suggestions[suggestionIndex]
-			setSearchText(cityValue);
+			const currentSearchValue: any = suggestions && suggestions[suggestionIndex]
+			getCurrentPrediction(currentSearchValue)
+			currentSearchValue && setSearchText(currentSearchValue);
 			setSuggestionIndex(0);
 			setSuggestionsActive(false);
-
-			const cityName = cities[cityValue];
-			setCityName(cityName);
-			
-			const selectedCity: any = Locations[cityName];
-			setPlaceCoordinates({ 
-				longitude: selectedCity.longitude, 
-				latitude: selectedCity.latitude 
-			});
 		}
-		// escape
+
+		// scape
 		else if (e.keyCode === 27) {
 			setSearchText("");
 			setSuggestionIndex(0);
@@ -90,20 +77,20 @@ export const Search = () => {
 		setSuggestionsActive(false);
 	}
 
-	const handleClick = (e: any, suggestion: any) => {
-		setSuggestions([]);
-		setSearchText(suggestion)
-		
-		setSuggestionsActive(false)
+	const getCurrentPrediction = (currentSearchValue: any) => {
+		googleSearchData && googleSearchData.predictions.filter((item: any) => {
+			const placeName = item.description.toLowerCase().trim();
+			if (placeName === currentSearchValue) {
+				setPlaceId(item.place_id);
+			}
+		})
+	}
 
-		const cityName = cities[suggestion];
-		const selectedCity: any = Locations[cityName];
-
-		setCityName(cityName);
-		setPlaceCoordinates({ 
-			longitude: selectedCity.longitude, 
-			latitude: selectedCity.latitude 
-		});
+	const handleClick = (e: any) => {
+		const currentSearchValue = e.target.innerText.trim();
+		getCurrentPrediction(currentSearchValue)
+		setSearchText(currentSearchValue);
+		setSuggestionsActive(false);
 	};
 
 	return (
@@ -119,7 +106,6 @@ export const Search = () => {
 					onChange={handleChange}
 					onKeyDown={handleKeyDown}
 					spellCheck={false}
-					onFocus={onFocus}
 				/>
 				<Cross cleanSuggestions={cleanSuggestions}/>
 				{suggestionsActive && suggestions &&

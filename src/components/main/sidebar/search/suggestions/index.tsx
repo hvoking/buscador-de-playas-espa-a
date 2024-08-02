@@ -5,7 +5,7 @@ export const Suggestions = ({ suggestions, 	handleClick }: any) => {
 	return (
 		<ul className="search-suggestions">
 			{
-				suggestions.map((suggestion: any, index: number) => {
+				suggestions.slice(0, 5).map((suggestion: any, index: number) => {
 					return (
 						<li 
 							key={index} 
@@ -31,7 +31,7 @@ export const Suggestions = ({ suggestions, 	handleClick }: any) => {
 										style={{alignSelf: "center"}}
 									/>
 								</div>
-								<div>{suggestion}</div>
+								<div>{suggestion.replace(", españa", "")}</div>
 							</div>
 						</li>
 					)
