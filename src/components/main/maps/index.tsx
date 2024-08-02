@@ -2,7 +2,6 @@
 import { useCallback } from 'react';
 
 // App imports
-import { CustomMarker } from './marker';
 import { Points } from './points';
 import { CustomPopup } from './popup';
 import { Filters } from './filters';
