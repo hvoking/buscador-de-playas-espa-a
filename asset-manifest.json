@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/buscador-de-playas/static/css/main.beca1cb3.css",
-    "main.js": "/buscador-de-playas/static/js/main.0c652553.js",
+    "main.css": "/buscador-de-playas/static/css/main.6030c775.css",
+    "main.js": "/buscador-de-playas/static/js/main.8e7c6a9c.js",
     "static/js/879.d4f12eeb.chunk.js": "/buscador-de-playas/static/js/879.d4f12eeb.chunk.js",
     "index.html": "/buscador-de-playas/index.html",
-    "main.beca1cb3.css.map": "/buscador-de-playas/static/css/main.beca1cb3.css.map",
-    "main.0c652553.js.map": "/buscador-de-playas/static/js/main.0c652553.js.map",
+    "main.6030c775.css.map": "/buscador-de-playas/static/css/main.6030c775.css.map",
+    "main.8e7c6a9c.js.map": "/buscador-de-playas/static/js/main.8e7c6a9c.js.map",
     "879.d4f12eeb.chunk.js.map": "/buscador-de-playas/static/js/879.d4f12eeb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.beca1cb3.css",
-    "static/js/main.0c652553.js"
+    "static/css/main.6030c775.css",
+    "static/js/main.8e7c6a9c.js"
   ]
 }
