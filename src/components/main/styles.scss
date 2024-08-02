@@ -1,4 +1,54 @@
 .wrapper {
   height: calc(var(--vh, 1vh) * 100);
   display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+
+.sidebar-wrapper {
+  background-color: rgba(53, 105, 179, 1);
+  padding-right: 80px;
+  padding-left: 80px;
+  display: grid;
+  align-items: center;
+  color: rgba(255, 255, 255, 1);
+}
+.sidebar-title {
+  font-size: 3.4em;
+}
+.sidebar-search-wrapper {
+  display: grid;
+  grid-gap: 10px;
+}
+.sidebar-search-bar {
+  width: 100%;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 15px;
+}
+.sidebar-search-button {
+  background-color: rgba(67, 144, 102, 1);
+  width: min-content;
+  height: 30px;
+  padding-right: 60px;
+  padding-left: 60px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  display: grid;
+  align-items: center;
+  justify-self: right;
+}
+.sidebar-parameters-wrapper {
+  display: grid;
+  grid-gap: 20px;
+}
+.sidebar-parameters {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  font-size: 2.4em;
+  color: rgba(0, 0, 0, 1);
+}
+.sidebar-parameter-item {
+  background-color: rgba(255, 255, 255, 1);
+  padding: 10px;
 }
