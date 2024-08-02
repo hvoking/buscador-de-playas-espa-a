@@ -16,14 +16,13 @@ export const Main = () => {
 		<div className="wrapper">
 			<div className="sidebar-wrapper">
 				<div className="sidebar-title-wrapper">
-					<div>{"My Location > My Summer"}</div>
+					<div className="sidebar-subtitle">{"My Location > My Summer"}</div>
 					<div className="sidebar-title">
-						Encuentra tu playa <br/>
-						más cercana
+						Encuentra tu playa más cercana
 					</div>
 				</div>
 				<div className="sidebar-search-wrapper">
-					<div>desde</div>
+					<div className="sidebar-subtitle">desde</div>
 					<div className="sidebar-search-bar"></div>
 					<div className="sidebar-search-button">Buscar</div>
 				</div>
