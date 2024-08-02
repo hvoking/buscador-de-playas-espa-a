@@ -8,7 +8,7 @@ import { Cross } from './cross';
 import './styles.scss';
 
 // Context imports
-import { useGeo } from '../../../../context/filters/geo';
+import { useGeo } from '../../../context/filters/geo';
 
 export const Search = () => {
 	const { setCityName, Locations, cities, setPlaceCoordinates } = useGeo();
@@ -114,7 +114,7 @@ export const Search = () => {
 					ref={inputRef}
 					className="maps-input"
 					type="text" 
-					placeholder="Escolha a cidade"
+					placeholder="Elija una ciudad"
 					value={searchText}
 					onChange={handleChange}
 					onKeyDown={handleKeyDown}

@@ -4,7 +4,6 @@ import { useCallback } from 'react';
 // App imports
 import { Points } from './points';
 import { CustomPopup } from './popup';
-import { Filters } from './filters';
 import './styles.scss';
 
 // Context imports
@@ -62,7 +61,6 @@ export const MapContainer = () => {
 						setPropertyHoverInfo={setPropertyHoverInfo}
 					/>
 				}
-				<Filters/>
 			</Map>
 		</div>
 	)
